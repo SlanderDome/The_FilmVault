@@ -1,0 +1,18 @@
+.dark-mode-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--highlight-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+  opacity: 0.8;
+}

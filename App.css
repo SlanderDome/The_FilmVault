@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-playfair: "Playfair Display", serif;
+  --font-raleway: "Raleway", sans-serif;
+  --terracotta-red: #C45C48;
+  --light-beige: #F8F3ED;
+  --muted-teal: #7BA595;
+  --deep-teal: #5F8B7A;
+  --text-color: #3D3D3D;
+  --background-color: #FFFCF9;
+  --card-shadow: 0 8px 32px rgba(179, 86, 66, 0.08);
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body {
+  font-family: var(--font-playfair);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.app {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: var(--terracotta-red);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--terracotta-red), transparent);
+}
+
+/* Replace your existing .search styles with these */
+.search {
+  width: 65%;
+  max-width: 700px;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.search__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  background: white;
+  border: 1px solid rgba(140, 168, 156, 0.3);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.search__input {
+  flex: 1;
+  border: none;
+  font-size: 1.2rem;
+  font-family: var(--font-raleway);
+  font-weight: 400;
+  padding: 0 1rem;
+  outline: none;
+  color: var(--terracotta-red);
+  background: transparent;
+}
+
+.search__input::placeholder {
+  color: rgba(140, 168, 156, 0.7);
+  font-weight: 300;
+  font-style: italic;
+}
+
+.search__icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  filter: invert(36%) sepia(30%) saturate(900%) hue-rotate(310deg);
+  transition: opacity 0.3s ease;
+}
+
+.search__container:focus-within {
+  border-color: var(--muted-teal);
+  box-shadow: 0 4px 12px rgba(179, 86, 66, 0.1);
+}
+
+.search__container:focus-within .search__icon {
+  opacity: 1;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .search {
+    width: 90%;
+  }
+  
+  .search__container {
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .search__input {
+    font-size: 1rem;
+  }
+  
+  .search__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.container {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.movie {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  border: none;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  will-change: transform;
+}
+
+.movie:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(179, 86, 66, 0.2);
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(110%) contrast(105%);
+  transition: var(--transition);
+}
+
+.movie:hover div:nth-of-type(2) img {
+  filter: saturate(120%) brightness(105%);
+}
+
+.movie div:nth-of-type(3) {
+  padding: 1.2rem 1.5rem;
+  background: rgba(248, 243, 237, 0.95);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  transform: translateY(0);
+  transition: var(--transition);
+}
+
+.movie:hover div:nth-of-type(3) {
+  transform: translateY(-5px);
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: var(--font-raleway);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: var(--deep-teal);
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 0.3rem;
+  font-family: var(--font-playfair);
+  color: var(--terracotta-red);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 2rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .search {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+  
+  .movie {
+    width: 100%;
+    max-width: 350px;
+    height: 500px;
+  }
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.movie {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Different delay for each movie card */
+.movie:nth-child(1) { animation-delay: 0.1s; }
+.movie:nth-child(2) { animation-delay: 0.2s; }
+.movie:nth-child(3) { animation-delay: 0.3s; }
+.movie:nth-child(4) { animation-delay: 0.4s; }
+/* Add more if needed */
+
+/* Add this to your existing CSS */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem; /* Creates space for the border */
+}
+
+/*body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 12px solid transparent;
+  background: linear-gradient(var(--background-color), var(--background-color)) padding-box,
+              linear-gradient(135deg, 
+                var(--terracotta-red) 0%, 
+                transparent 20%, 
+                var(--muted-teal) 40%, 
+                transparent 60%, 
+                var(--terracotta-red) 80%) border-box;
+  z-index: -1;
+  pointer-events: none;
+  animation: borderGradient 15s ease infinite;
+  background-size: 300% 300%;
+}
+
+/* Alternative border style (comment out the above and uncomment this for a different look) */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  border: 2px dashed var(--muted-teal);
+  border-radius: 4px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+
+
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Adjust the app container to account for border */
+.app {
+  padding: 1rem;
+  position: relative;
+}
+
+/* Add decorative corner elements */
+.app::before, .app::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid;
+  opacity: 0.2;
+}
+
+.app::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-color: var(--terracotta-red);
+}
+
+.app::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-color: var(--muted-teal);
+}
+
+:root {
+  --background-color: #FFFCF9;
+  --text-color: #3D3D3D;
+  --card-bg: white;
+  --highlight-color: #C45C48;
+  --shadow-color: rgba(179, 86, 66, 0.08);
+}
+
+[data-theme="dark"] {
+  --background-color: #1E1E1E;
+  --text-color: #EAEAEA;
+  --card-bg: #2A2A2A;
+  --highlight-color: #E67E7E;
+  --shadow-color: rgba(255, 105, 97, 0.2);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
