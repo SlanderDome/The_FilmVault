@@ -1,7 +1,7 @@
 ✨🎟️The FilmVault
 
 📌 Overview
- ✨🎟️The FilmVault is a sleek and fast React-based application that allows users to search for movies and get detailed information about them. Built with modern UI/UX design principles, the app provides a seamless movie discovery experience.
+✨🎟️The FilmVault is a sleek and fast React-based application that allows users to search for movies and get detailed information about them. Built with modern UI/UX design principles, the app provides a seamless movie discovery experience.
 
 🚀 Features
 - 🔍 **Search movies** by title in real-time.
